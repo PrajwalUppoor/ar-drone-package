@@ -24,7 +24,7 @@ public class IndustrialMachine : MonoBehaviour
 
     private Vector2 moveInput;
 
-    public void SetInputs(Vector2 move,float throttle, float yaw
+    public void SetInputs(Vector2 move,float throttle, float yaw)
     {
         moveInput = move;
     }
@@ -54,3 +54,4 @@ public class IndustrialMachine : MonoBehaviour
     //     return $"Temp: {temperature:F1}°C | Status: {(temperature > thresholdTemperature ? "CRITICAL" : "OK")}";
     // }
 }
+
