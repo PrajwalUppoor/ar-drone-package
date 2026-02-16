@@ -1,0 +1,11 @@
+{
+    "name": "com.puppoor.ardrone",
+    "displayName": "AR Drone Package",
+    "version": "1.0.0",
+    "unity": "2021.3",
+    "description": "Plug and play AR Drone controller and placement system.",
+    "author": {
+      "name": "Prajwal Uppoor"
+    }
+  }
+  
