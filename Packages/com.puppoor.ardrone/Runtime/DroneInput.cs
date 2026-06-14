@@ -4,10 +4,10 @@ using UnityEngine.InputSystem;
 public class DroneInput : MonoBehaviour
 {
     [SerializeField] private DroneController controller;
-    
+
     // Existing actions from InputSystem_Actions
     private InputAction moveAction;
-    
+
     // New actions we'll add
     private InputAction throttleAction;
     private InputAction yawAction;
@@ -25,7 +25,7 @@ public class DroneInput : MonoBehaviour
     {
         if (controller == null) controller = GetComponent<DroneController>();
         if (playerInput == null) playerInput = GetComponent<PlayerInput>();
-        
+
         // Find machine if not assigned
         if (machineController == null) machineController = FindFirstObjectByType<IndustrialMachine>();
 
@@ -56,7 +56,7 @@ public class DroneInput : MonoBehaviour
         }
 
         Vector2 move = moveAction != null ? moveAction.ReadValue<Vector2>() : Vector2.zero;
-        
+
         if (move == Vector2.zero && Keyboard.current != null)
         {
             float x = (Keyboard.current.dKey.isPressed ? 1f : 0f) - (Keyboard.current.aKey.isPressed ? 1f : 0f);
