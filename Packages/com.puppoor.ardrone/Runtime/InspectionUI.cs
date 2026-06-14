@@ -5,7 +5,7 @@ using TMPro;
 public class InspectionUI : MonoBehaviour
 {
     [Header("Refined Controls")]
-    [SerializeField] private TMP_Dropdown targetDropdown; 
+    [SerializeField] private TMP_Dropdown targetDropdown;
     [SerializeField] private Button placeMachineButton;
     [SerializeField] private DroneInput droneInput;
     [SerializeField] private ARPlacement arPlacement;
@@ -20,7 +20,7 @@ public class InspectionUI : MonoBehaviour
 
         if (placeMachineButton != null)
             placeMachineButton.onClick.AddListener(OnPlaceMachineClicked);
-        
+
         if (droneInput == null) droneInput = FindFirstObjectByType<DroneInput>();
         if (arPlacement == null) arPlacement = FindFirstObjectByType<ARPlacement>();
     }
