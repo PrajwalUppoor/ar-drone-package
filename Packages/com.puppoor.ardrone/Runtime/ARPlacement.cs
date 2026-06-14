@@ -7,7 +7,7 @@ public class ARPlacement : MonoBehaviour
 {
     [SerializeField] private GameObject dronePrefab;
     [SerializeField] private GameObject machinePrefab;
-    
+
     private GameObject spawnedDrone;
     private GameObject spawnedMachine;
     private ARRaycastManager raycastManager;
@@ -55,7 +55,7 @@ public class ARPlacement : MonoBehaviour
         // Place 1.5 meters in front of the camera
         Transform camTransform = Camera.main.transform;
         Vector3 spawnPos = camTransform.position + camTransform.forward * 1.5f;
-        
+
         // Align to ground if possible
         RaycastHit hit;
         if (Physics.Raycast(spawnPos + Vector3.up, Vector3.down, out hit, 10f))
@@ -66,7 +66,7 @@ public class ARPlacement : MonoBehaviour
         if (spawnedMachine == null)
         {
             spawnedMachine = Instantiate(machinePrefab, spawnPos, Quaternion.identity);
-            
+
             // Re-find the machine in DroneInput if it was just spawned
             DroneInput di = FindFirstObjectByType<DroneInput>();
             if (di != null) di.SetMachineTarget(spawnedMachine.GetComponent<IndustrialMachine>());
