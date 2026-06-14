@@ -48,7 +48,7 @@ public class DroneController : MonoBehaviour
         // Counteract gravity (9.81) to maintain hover by default
         float gravityOffset = Physics.gravity.magnitude;
         float verticalForce = gravityOffset + (throttleInput * liftForce);
-        
+
         // Use all layers if groundLayer is set to Nothing (0)
         LayerMask effectiveLayer = groundLayer == 0 ? ~0 : groundLayer;
 
@@ -67,7 +67,7 @@ public class DroneController : MonoBehaviour
                 // Significantly stronger force if we are sinking
                 float error = minHeightFromGround - distance;
                 verticalForce += error * 100f; // Increased from 60f
-                
+
                 // Kill downward velocity immediately when touching ground
                 if (rb.linearVelocity.y < 0)
                 {
@@ -97,7 +97,7 @@ public class DroneController : MonoBehaviour
                 rb.linearVelocity = Vector3.zero;
             }
         }
-        
+
         rb.AddForce(Vector3.up * verticalForce, ForceMode.Acceleration);
     }
 
@@ -105,7 +105,7 @@ public class DroneController : MonoBehaviour
     {
         // Move horizontal/vertical relative to the drone's orientation
         Vector3 moveDirection = transform.forward * moveInput.y + transform.right * moveInput.x;
-        
+
         // Add "Landing Friction"
         // If we are touching or very close to the ground and not trying to move
         RaycastHit hit;
